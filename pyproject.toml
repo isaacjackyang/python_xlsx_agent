@@ -1,0 +1,25 @@
+[build-system]
+requires = ["setuptools>=69", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "xl-agent-core"
+version = "0.1.0"
+description = "Python spreadsheet agent substrate for reconnaissance, region-grounded reads, and formula-aware analysis."
+readme = "README.md"
+requires-python = ">=3.10"
+dependencies = [
+    "mcp>=1.23.0,<2",
+    "openpyxl>=3.1.0",
+    "pywin32>=306; platform_system == 'Windows'",
+]
+
+[project.scripts]
+xl = "xl_agent_core.cli.main:main"
+xl-mcp = "xl_agent_core.mcp.server:main"
+
+[tool.setuptools]
+package-dir = {"" = "src"}
+
+[tool.setuptools.packages.find]
+where = ["src"]
